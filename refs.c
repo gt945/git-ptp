@@ -1492,7 +1492,7 @@ static int resolve_gitlink_ref_recursive(struct ref_cache *refs,
 	path = *refs->name
 		? git_pathdup_submodule(refs->name, "%s", refname)
 		: git_pathdup("%s", refname);
-	fd = open(path, O_RDONLY);
+	fd = -1; //open(path, O_RDONLY);
 	free(path);
 	if (fd < 0)
 		return resolve_gitlink_packed_ref(refs, refname, sha1);

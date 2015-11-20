@@ -2191,7 +2191,7 @@ void setup_standard_excludes(struct dir_struct *dir)
 {
 	const char *path;
 
-	dir->exclude_per_dir = ".gitignore";
+	dir->exclude_per_dir = ".ptp-gitignore";
 
 	/* core.excludefile defaulting to $XDG_HOME/git/ignore */
 	if (!excludes_file)

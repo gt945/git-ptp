@@ -1115,7 +1115,7 @@ int cmd_update_index(int argc, const char **argv, const char *prefix)
 		if (!the_index.untracked) {
 			uc = xcalloc(1, sizeof(*uc));
 			strbuf_init(&uc->ident, 100);
-			uc->exclude_per_dir = ".gitignore";
+			uc->exclude_per_dir = ".ptp-gitignore";
 			/* should be the same flags used by git-status */
 			uc->dir_flags = DIR_SHOW_OTHER_DIRECTORIES | DIR_HIDE_EMPTY_DIRECTORIES;
 			the_index.untracked = uc;

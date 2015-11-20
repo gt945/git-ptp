@@ -279,7 +279,7 @@ static int add_config(const char *var, const char *value, void *cb)
 static int add_files(struct dir_struct *dir, int flags)
 {
 	int i, exit_status = 0;
-
+	char *find;
 	if (dir->ignored_nr) {
 		fprintf(stderr, _(ignore_error));
 		for (i = 0; i < dir->ignored_nr; i++)
@@ -288,12 +288,16 @@ static int add_files(struct dir_struct *dir, int flags)
 		exit_status = 1;
 	}
 
-	for (i = 0; i < dir->nr; i++)
+	for (i = 0; i < dir->nr; i++ ) {
+		find = strstr(dir->entries[i]->name, ".git/");
+		if (find)
+			continue;
 		if (add_file_to_cache(dir->entries[i]->name, flags)) {
 			if (!ignore_add_errors)
 				die(_("adding files failed"));
 			exit_status = 1;
 		}
+	}
 	return exit_status;
 }
 
