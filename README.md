@@ -2,9 +2,9 @@
 
 This project is forked from git
 
-This git is modifed for Eclipse PTP synchronized prjects.
+This git is modifed for Eclipse PTP synchronized projects.
 
-The mainly change are below:
+The mainly changes are below:
  - change git ignore file to ".ptp-gitignore"
  - treat all submodules as part of the git repo
  - ignore all .git directory in submodules
